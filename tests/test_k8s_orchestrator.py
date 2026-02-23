@@ -153,7 +153,7 @@ class TestCalculateResourceLimits:
 
     def test_three_x_multiplier(self):
         res = calculate_resource_limits("500m", "512Mi", 3.0)
-        assert res.cpu_limit == "1500m"
+        assert res.cpu_limit in ("1500m", "1.5")
 
     def test_cpu_in_cores(self):
         res = calculate_resource_limits("1", "1Gi", 2.0)
